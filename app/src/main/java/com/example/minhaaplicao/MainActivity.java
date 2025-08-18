@@ -19,10 +19,9 @@ public class MainActivity extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
         textView=findViewById(R.id.tv);
-        textView.setText(Integer.toString(contador));
-        textView,setText(contador);
         textView.setOnClickListener(v -> {
-            textView.setText("Bla");
+            contador++;
+            textView.setText(Integer.toString(contador));
         });
 
 
