@@ -1,6 +1,7 @@
 package com.example.minhaaplicao;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
@@ -16,14 +17,43 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
-        textView=findViewById(R.id.tv);
-        textView.setOnClickListener(v -> {
-            contador++;
-            textView.setText(Integer.toString(contador));
-        });
+        Log.d("ciclo de vida", "Oncreate ");
 
 
         }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        Log.d("ciclo_vida", "onStart");
     }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Log.d("ciclo_vida", "onResume");
+
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        Log.d("ciclo_vida", "onPause");
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop(); Log.d("ciclo_vida", "onStop");
+
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        Log.d("ciclo_vida", "onDestroy");
+
+    }
+
+
+}
