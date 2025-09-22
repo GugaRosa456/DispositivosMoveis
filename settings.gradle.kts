@@ -19,6 +19,6 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "MinhaAplicação"
+rootProject.name = "IMC"
 include(":app")
  
