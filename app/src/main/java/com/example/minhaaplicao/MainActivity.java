@@ -19,9 +19,8 @@ import java.util.Arrays;
 public class MainActivity extends AppCompatActivity {
     ArrayList<String> nomes;
     ListView listView;
-    Button adicionarBotao;
 
-    EditText et;
+    PlanetaController planetaController;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,25 +28,10 @@ public class MainActivity extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
         listView = findViewById(R.id.ListView);
-        et = findViewById(R.id.et);
-        adicionarBotao = findViewById(R.id.AdicionarBotao);
-        nomes = new ArrayList<String>();
-       ArrayAdapter<String> adapter = new ArrayAdapter<String>( this, android.R.layout.simple_list_item_1,nomes);
-       listView.setAdapter(adapter);
-
-        adicionarBotao.setOnClickListener(v  -> {
-                    nomes.add(et.getText().toString());
-                    adapter.notifyDataSetChanged();
-                });
-listView.setOnItemLongClickListener( ( parent, view, position, id) -> {
-    nomes.remove(position);
-    adapter.notifyDataSetChanged();
-    return true;
-
-   });
-
-
-        // Excluir elementos da Listagem
+        planetaController = new PlanetaController();
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, planetaController.getNomePlanetas());
+        listView.setAdapter(adapter);
 
     }
 }
+
