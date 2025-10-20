@@ -1,5 +1,6 @@
 package com.example.minhaaplicao;
 
+
 public class Planeta {
     String nome;
     int foto;

@@ -2,11 +2,12 @@ package com.example.minhaaplicao;
 
 import java.util.ArrayList;
 
+
 public class PlanetaDao {
     ArrayList<Planeta> arrayListPlanetas;
 
     public PlanetaDao() {
-        arrayListPlanetas = new ArrayList<Planeta>();
+        arrayListPlanetas = new ArrayList<>();
         arrayListPlanetas.add(new Planeta("Mercúrio", R.drawable.mercury));
         arrayListPlanetas.add(new Planeta("Vênus", R.drawable.venus));
         arrayListPlanetas.add(new Planeta("Terra", R.drawable.earth));
