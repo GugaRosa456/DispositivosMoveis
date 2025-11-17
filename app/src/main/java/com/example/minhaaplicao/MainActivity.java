@@ -1,6 +1,8 @@
 package com.example.minhaaplicao;
 
+import android.annotation.SuppressLint;
 import android.content.ContentValues;
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
@@ -48,6 +50,14 @@ public class MainActivity extends AppCompatActivity {
             db.insert("notas", null, cv);
             carregarListagem();
         });
+        listview.setOnItemClickListener((parent, view, position, id) -> {
+            Intent intent = new Intent( this, ExibeItem.class);
+            Bundle bundle = new Bundle();
+            String titulo = (String) parent.getItemAtPosition(position);
+            bundle.putString("item", titulo);
+            intent.putExtra("titulo", titulo);
+            startActivity(intent);
+        });
     }
     public void carregarListagem() {
         ArrayList<String> titulos = new ArrayList<String>();
@@ -55,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
         cursor.moveToFirst();
 
         while(!cursor.isAfterLast()) {
-            String titulo = cursor.getString(cursor.getColumnIndex("titulo"));
+            @SuppressLint("Range") String titulo = cursor.getString(cursor.getColumnIndex("titulo"));
             titulos.add(titulo);
             cursor.moveToNext();
              }
