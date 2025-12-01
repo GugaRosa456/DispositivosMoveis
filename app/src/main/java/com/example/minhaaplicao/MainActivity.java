@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
             min=Integer.parseInt(editTextMin.getText().toString());
             max=Integer.parseInt(editTextMax.getText().toString());
             int delta= max-min;
-            int sortiado = random.nextInt();
+            int sortiado = random.nextInt(delta) + min;
             tv.setText(Integer.toString(sortiado));
         });
     }
